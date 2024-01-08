@@ -6,7 +6,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const playerImg = new Image();
-playerImg.src = "images/cat.png";
+playerImg.src = "images/mato.jpg";
 
 const redSquareImg = new Image();
 redSquareImg.src = "images/megan.png";
@@ -14,7 +14,7 @@ redSquareImg.src = "images/megan.png";
 const player = {
   x: canvas.width / 2,
   y: canvas.height / 2,
-  size: 300,
+  size: 200,
   speed: 10,
 };
 
@@ -56,7 +56,7 @@ function update() {
 }
 
 function addRedSquare() {
-  const size = 150
+  const size = 300
   const x = Math.random() * (canvas.width - size);
   const y = Math.random() * (canvas.height - size);
 
