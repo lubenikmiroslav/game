@@ -6,7 +6,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const playerImg = new Image();
-playerImg.src = "images/mato.jpg";
+playerImg.src = "images/matoo.png";
 
 const redSquareImg = new Image();
 redSquareImg.src = "images/megan.png";
@@ -14,7 +14,7 @@ redSquareImg.src = "images/megan.png";
 const player = {
   x: canvas.width / 2,
   y: canvas.height / 2,
-  size: 200,
+  size: 300,
   speed: 10,
 };
 
@@ -109,3 +109,10 @@ openBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   sidebar.style.width = "0";
 });
+
+var backgroundMusic = document.getElementById("backgroundMusic");
+document.addEventListener("keydown", function() {
+  backgroundMusic.volume = 0.2;
+  backgroundMusic.play();
+});
+

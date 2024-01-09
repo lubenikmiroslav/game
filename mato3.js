@@ -109,3 +109,10 @@ openBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   sidebar.style.width = "0";
 });
+
+var backgroundMusic = document.getElementById("backgroundMusic");
+document.addEventListener("keydown", function() {
+  backgroundMusic.volume = 0.2;
+  backgroundMusic.play();
+});
+
