@@ -11,6 +11,9 @@ playerImg.src = "images/matoo.png";
 const redSquareImg = new Image();
 redSquareImg.src = "images/megan.png";
 
+const bonusSquareImg = new Image();
+bonusSquareImg.src = "images/bonus.png";
+
 const player = {
   x: canvas.width / 2,
   y: canvas.height / 2,
@@ -31,7 +34,8 @@ function drawPlayer() {
 
 function drawenemy() {
   enemy.forEach((square) => {
-    ctx.drawImage(redSquareImg, square.x, square.y, square.size, square.size);
+    const img = square.imageIndex === 0 ? redSquareImg : bonusSquareImg;
+    ctx.drawImage(img, square.x, square.y, square.size, square.size);
   });
 }
 
@@ -43,6 +47,10 @@ function update() {
   drawPlayer();
   drawenemy();
   drawScore();
+
+  if (score >= 100 && player.currentImageIndex === 0) {
+    player.currentImageIndex = 1;
+  }
 
   enemy.forEach((square, index) => {
     const distance = Math.hypot(player.x - square.x, player.y - square.y);
@@ -56,11 +64,12 @@ function update() {
 }
 
 function addRedSquare() {
-  const size = 300
+  const size = 300;
   const x = Math.random() * (canvas.width - size);
   const y = Math.random() * (canvas.height - size);
+  const imageIndex = score >= 100 ? 1 : 0; // Změna indexu obrázku podle skóre
 
-  enemy.push({ x, y, size });
+  enemy.push({ x, y, size, imageIndex });
 }
 
 function handleMovement() {
@@ -112,7 +121,7 @@ closeBtn.addEventListener("click", () => {
 
 var backgroundMusic = document.getElementById("backgroundMusic");
 document.addEventListener("keydown", function() {
-  backgroundMusic.volume = 0.2;
+  backgroundMusic.volume = 1;
   backgroundMusic.play();
 });
 
