@@ -18,7 +18,7 @@ const player = {
   x: canvas.width / 2,
   y: canvas.height / 2,
   size: 300,
-  speed: 10,
+  speed: 20,
 };
 
 let score = 0;
@@ -65,9 +65,15 @@ function update() {
 
 function addRedSquare() {
   const size = 300;
-  const x = Math.random() * (canvas.width - size);
-  const y = Math.random() * (canvas.height - size);
-  const imageIndex = score >= 100 ? 1 : 0; // Změna indexu obrázku podle skóre
+  //const x = Math.random() * (canvas.width - size);
+  //const y = Math.random() * (canvas.height - size);
+  //const imageIndex = score >= 100 ? 1 : 0; // Změna indexu obrázku podle skóre
+
+  do {
+    x = Math.random() * (canvas.width - size);
+    y = Math.random() * (canvas.height - size);
+    imageIndex = score >= 100 ? 1 : 0;
+  } while (Math.hypot(player.x - x, player.y - y) < 500);
 
   enemy.push({ x, y, size, imageIndex });
 }

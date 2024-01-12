@@ -6,10 +6,10 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const playerImg = new Image();
-playerImg.src = "images/dogo.png";
+playerImg.src = "images/misko.png";
 
 const redSquareImg = new Image();
-redSquareImg.src = "images/tenis.png";
+redSquareImg.src = "images/pravitko.png";
 
 const player = {
   x: canvas.width / 2,
@@ -56,7 +56,7 @@ function update() {
 }
 
 function addRedSquare() {
-  const size = 100;
+  const size = 200;
   let x, y;
 
   do {
