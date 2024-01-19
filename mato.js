@@ -26,7 +26,7 @@ let score = 0;
 const enemy = [];
 const keyState = {};
 
-const borderSize = 10;
+const borderSize = 11;
 
 function drawPlayer() {
   ctx.drawImage(playerImg, player.x - player.size / 2, player.y - player.size / 2, player.size, player.size);

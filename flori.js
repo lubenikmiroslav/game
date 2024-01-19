@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 const scoreDisplay = document.getElementById("score");
 
 canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.height = window.innerHeight - 20;
 
 const playerImg = new Image();
 playerImg.src = "images/flori.png";
@@ -23,7 +23,8 @@ let score = 0;
 const enemy = [];
 const keyState = {};
 
-const borderSize = 10;
+const borderSize = 15;
+
 
 function drawPlayer() {
   ctx.drawImage(playerImg, player.x - player.size / 2, player.y - player.size / 2, player.size, player.size);
